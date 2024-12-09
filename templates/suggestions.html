@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Flavor Suggestions</h1>
+    <form method="post" action="/suggestions" class="mb-4">
+        <div class="mb-3">
+            <label for="name" class="form-label">Your Name:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="suggestion" class="form-label">Your Suggestion:</label>
+            <textarea id="suggestion" name="suggestion" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+    <h2>Previous Suggestions</h2>
+    <ul class="list-group">
+        {% for suggestion in suggestions %}
+        <li class="list-group-item">{{ suggestion[1] }}: {{ suggestion[2] }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

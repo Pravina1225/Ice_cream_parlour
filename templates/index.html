@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1 class="display-4">Welcome to Ice Cream Parlor!</h1>
+    <p class="lead">Delight in our seasonal flavors, crafted with love.</p>
+    <div class="row mt-4">
+        {% for flavor in flavors %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/image1.jpeg') }}" class="card-img-top" alt="Ice Cream">
+                <div class="card-body">
+                    <h5 class="card-title">{{ flavor[1] }}</h5>
+                    <p class="card-text">Season: {{ flavor[2] }}</p>
+                    <a href="/add_to_cart/{{ flavor[0] }}" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
