@@ -15,7 +15,7 @@ def setup_database():
         price INTEGER NOT NULL
     )
 ''')
- 
+    
     cursor.execute('''CREATE TABLE IF NOT EXISTS inventory (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         ingredient TEXT UNIQUE NOT NULL,
